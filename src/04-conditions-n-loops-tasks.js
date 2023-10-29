@@ -221,8 +221,24 @@ function findFirstSingleChar(str) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  let result = '';
+  if (isStartIncluded === true) {
+    result += '[';
+  } else {
+    result += '(';
+  }
+  if (a < b) {
+    result += `${a}, ${b}`;
+  } else {
+    result += `${b}, ${a}`;
+  }
+  if (isEndIncluded === true) {
+    result += ']';
+  } else {
+    result += ')';
+  }
+  return result;
 }
 
 
@@ -238,8 +254,12 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  let result = '';
+  for (let i = 0; i < str.length; i += 1) {
+    result += str[str.length - i - 1];
+  }
+  return result;
 }
 
 
@@ -255,8 +275,13 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  const str = `${num}`;
+  let result = '';
+  for (let i = 0; i < str.length; i += 1) {
+    result += str[str.length - i - 1];
+  }
+  return result;
 }
 
 
@@ -298,8 +323,17 @@ function isCreditCardNumber(/* ccn */) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(/* num */) {
-  throw new Error('Not implemented');
+function getDigitalRoot(num) {
+  let result = `${num}`; let
+    sum = 0;
+  while (result.length > 1) {
+    for (let i = 0; i < result.length; i += 1) {
+      sum += Number(result[i]);
+    }
+    result = `${sum}`;
+    sum = 0;
+  }
+  return result;
 }
 
 
